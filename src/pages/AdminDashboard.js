@@ -11,7 +11,7 @@ const AdminDashboard = () => {
   const [activeView, setActiveView] = useState('stats'); // 'stats' | 'users' | 'listings' | 'claims'
   const navigate = useNavigate();
 
-  const fetchData = async () => {
+  const fetchData = React.useCallback(async () => {
     try {
       setLoading(true);
       const [statsRes, usersRes, listingsRes, claimsRes] = await Promise.all([
@@ -30,11 +30,11 @@ const AdminDashboard = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [navigate]);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   const adjustKarma = async (userId, points) => {
     try {
