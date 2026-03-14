@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
-import AiAssistantWidget from './components/AiAssistantWidget';
 import ProtectedRoute from './components/ProtectedRoute';
 
 import Login from './pages/Login';
@@ -89,8 +88,6 @@ function App() {
           <footer className="py-6 border-t border-surface-border text-center text-gray-500 text-sm mt-auto relative z-10 w-full bg-surface">
             &copy; {new Date().getFullYear()} NutriConnect. Rescuing food, feeding hope.
           </footer>
-          
-          <AiAssistantWidget />
         </div>
       </AuthProvider>
     </Router>
