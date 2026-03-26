@@ -1,7 +1,10 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import axios from 'axios';
 
-const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:8080/api';
+// Use relative /api path if running in production (where frontend is served by Spring Boot), or fallback to local dev variable
+const API_BASE = process.env.NODE_ENV === 'production' 
+  ? '/api' 
+  : (process.env.REACT_APP_API_URL || 'http://localhost:8080/api');
 
 // Generate a unique session ID per browser tab (persists across re-renders)
 const generateSessionId = () => {
