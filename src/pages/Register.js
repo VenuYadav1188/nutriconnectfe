@@ -19,10 +19,6 @@ const Register = () => {
   const { register } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Google Maps Autocomplete is removed to fix typing conflicts
-    // Users will now rely on the 'Detect Location' button for precise coordinates
-  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
