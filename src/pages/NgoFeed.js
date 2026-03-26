@@ -86,9 +86,7 @@ const NgoFeed = () => {
       setClaimStatus({ id, status: 'success', message: '✅ Food claimed successfully!' });
       
       // Open rating modal immediately after successful claim
-      setTimeout(() => {
-        setRatingModal({ isOpen: true, foodId: id, rating: 5, notes: '' });
-      }, 1000);
+      setRatingModal({ isOpen: true, foodId: id, rating: 5, notes: '' });
 
     } catch (err) {
       setClaimStatus({ 
@@ -244,6 +242,9 @@ const NgoFeed = () => {
                       
                       {statusForThisItem?.status === 'error' && (
                         <div className="text-urgent-400 text-xs mt-2 text-right">{statusForThisItem.message}</div>
+                      )}
+                      {statusForThisItem?.status === 'success' && (
+                        <div className="text-green-400 text-xs mt-2 text-right font-semibold">{statusForThisItem.message}</div>
                       )}
                     </div>
                   </div>

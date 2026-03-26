@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
+import Chatbot from './components/Chatbot';
 
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -88,6 +89,7 @@ function App() {
           <footer className="py-6 border-t border-surface-border text-center text-gray-500 text-sm mt-auto relative z-10 w-full bg-surface">
             &copy; {new Date().getFullYear()} NutriConnect. Rescuing food, feeding hope.
           </footer>
+          <Chatbot />
         </div>
       </AuthProvider>
     </Router>
