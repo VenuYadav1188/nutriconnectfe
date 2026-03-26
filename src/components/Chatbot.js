@@ -90,12 +90,12 @@ const Chatbot = () => {
   return (
     <>
       {/* ─── Floating Container ─── */}
-      <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end">
+      <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end pointer-events-none">
 
         {/* ─── Chat Panel ─── */}
         <div
           className={`
-            transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] origin-bottom-right
+            transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] origin-bottom-right pointer-events-auto
             ${isOpen
               ? 'scale-100 opacity-100 translate-y-0 mb-4'
               : 'scale-75 opacity-0 translate-y-4 pointer-events-none mb-0'}
@@ -360,7 +360,7 @@ const Chatbot = () => {
         {/* ─── Toggle FAB ─── */}
         <button
           onClick={handleToggle}
-          className="group relative flex items-center justify-center w-14 h-14 rounded-2xl transition-all duration-300 transform hover:scale-105 active:scale-95"
+          className="group relative flex items-center justify-center w-14 h-14 rounded-2xl transition-all duration-300 transform hover:scale-105 active:scale-95 pointer-events-auto"
           style={{
             background: isOpen
               ? '#1a1d27'
