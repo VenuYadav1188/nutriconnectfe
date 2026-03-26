@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import axios from 'axios';
 
-// Strictly use production backend. No localhost fallbacks.
-const API_BASE = process.env.REACT_APP_API_URL || 'https://nutriconnectbe.onrender.com/api';
+// Use the deployed backend URL if in production (Vercel), or fallback to local dev variable
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? (process.env.REACT_APP_API_URL || 'http://localhost:8080/api')
+  : (process.env.REACT_APP_API_URL || 'https://nutriconnectbe.onrender.com/api');
 
 // Generate a unique session ID per browser tab (persists across re-renders)
 const generateSessionId = () => {

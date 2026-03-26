@@ -1,8 +1,10 @@
 import axios from 'axios';
 
 const api = axios.create({
-  // Strictly use production backend. No localhost fallbacks.
-  baseURL: process.env.REACT_APP_API_URL || 'https://nutriconnectbe.onrender.com/api',
+  // Strictly
+  baseURL: (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? (process.env.REACT_APP_API_URL || 'http://localhost:8080/api')
+    : (process.env.REACT_APP_API_URL || 'https://nutriconnectbe.onrender.com/api'),
 });
 
 api.interceptors.request.use(
